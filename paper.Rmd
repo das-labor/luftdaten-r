@@ -7,6 +7,17 @@ output: pdf_document
 source("load.R")
 ```
 
+## Vergleich von Dortmund und Essen
+```{r sensor_maps_do_e}
+do_polygon_osm <- read_osm(do_polygon, ext = 1.05)
+qtm(do_polygon_osm)+
+  qtm(do_sensors, symbols.col = "red")
+
+e_polygon_osm <- read_osm(e_polygon, ext = 1.05)
+qtm(e_polygon_osm)+
+  qtm(e_sensors, symbols.col = "red")
+```
+
 ## Daten eines Tages
 
 ```{r day_data}
