@@ -27,3 +27,4 @@ rsconnect/
 .Rproj.user
 # ignore data
 data
+/Literature/**/*.pdf
