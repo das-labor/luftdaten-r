@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
-source("load.R")
+source("../Evaluation/Scripts/load.R")
 ```
 
 ## Vergleich von Dortmund und Essen
