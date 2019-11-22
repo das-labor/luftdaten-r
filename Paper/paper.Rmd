@@ -9,7 +9,10 @@ output:
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
-source("../Evaluation/Scripts/load.R")
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+getwd()
+source("Evaluation/Scripts/load.R", chdir=TRUE, local=FALSE)
+getwd()
 ```
 
 ## Vergleich von Dortmund und Essen

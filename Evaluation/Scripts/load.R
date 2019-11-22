@@ -11,7 +11,7 @@ library(rgdal)
 library(ggplot2)
 library(cartography)
 
-source('../Evaluation/Scripts/func.R')
+source('Evaluation/Scripts/func.R')
 
 #' names of variables: english, lowletter case and "_"
 
