@@ -10,8 +10,12 @@ library(sf)
 library(rgdal)
 library(ggplot2)
 library(cartography)
-getwd()
+
+#' For production environment e.g. with Knitr use:
 source("func.R")
+
+#' For local testing via file only
+#' source("evaluation/scrips/func.R")
 
 #' names of variables: english, lowletter case and "_"
 
@@ -22,9 +26,9 @@ e_query <- opq("Essen Nordrhein-Westfalen") %>% add_osm_feature(key="de:regional
 e_polygon <- e_query$osm_multipolygons
 #nrw_query <- opq_osm_id(id="62761", type="relation") %>% opq_string() %>% osmdata_sp()
 #nrw_polygon <- nrw_query$osm_multipolygons
-
+getwd()
 #' Import luftdaten as csv, only sds011 sensor data (and only from 2018-10-08)
-csv_filenames <- list.files(path = "data/2018-10-08", pattern = "_sds011_sensor_", full.names = TRUE)
+csv_filenames <- list.files(path = "../data/2018-10-08", pattern = "_sds011_sensor_", full.names = TRUE)
 sensor_data <- rbindlist(lapply(csv_filenames, fread))
 
 #' Generating unique list of sensors
@@ -40,3 +44,4 @@ sensor_data_unique <- st_set_crs(sensor_data_unique, 4326)
 #' select sensors in specific geo areas (in a polygon that represents the area)
 do_sensors <- st_intersection(sensor_data_unique, do_polygon)
 e_sensors <- st_intersection(sensor_data_unique, e_polygon)
+
