@@ -24,7 +24,7 @@ e_polygon <- e_query$osm_multipolygons
 #nrw_polygon <- nrw_query$osm_multipolygons
 
 #' Import luftdaten as csv, only sds011 sensor data (and only from 2018-10-08)
-csv_filenames <- list.files(path = "../data/2018-10-08", pattern = "_sds011_sensor_", full.names = TRUE)
+csv_filenames <- list.files(path = "../../data/2018-10-08", pattern = "_sds011_sensor_", full.names = TRUE)
 sensor_data <- rbindlist(lapply(csv_filenames, fread))
 
 #' Generating unique list of sensors
