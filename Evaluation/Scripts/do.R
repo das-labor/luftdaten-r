@@ -1,4 +1,0 @@
-#' Analysis
-
-#' numbers of sensors
-
