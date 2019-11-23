@@ -53,4 +53,7 @@ Analysis in R of the data of luftdaten.info
 │   └── results.Rmd
 └── README.md
 </pre>
-4 directories, 20 files
+
+* data folder
+    - as of now a local non-indexed data folder is expected to be in the project root
+    - data is structured as given by the [archive](https://archive.luftdaten.info) of luftdaten.info
