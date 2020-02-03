@@ -11,7 +11,8 @@ output:
 ```{r setup, include=FALSE, echo=FALSE, cache=FALSE}
 #`require(knitr)
 #`opts_knit$set(root.dir = "~/Projekte/Luftdaten-Ruhrgebiet")
-source("../evaluation/scripts/load.R", chdir=TRUE, local=TRUE)
+source("evaluation/scripts/load.R", chdir=TRUE, local=TRUE)
+source("evaluation/scripts/func.R", chdir=TRUE, local=TRUE)
 ```
 
 ## Vergleich von Dortmund und Essen

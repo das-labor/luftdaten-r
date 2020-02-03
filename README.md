@@ -9,6 +9,8 @@ Analysis in R of the data of luftdaten.info
 * evaluation
     - create a new subfolder for each independend analysis
     - copy or link reusable codes or scripts into `scripts`
+    - provide extensive documentation about your code inline or concepts in a respective markdown file
+    
 
 <pre>
 ├── evaluation
