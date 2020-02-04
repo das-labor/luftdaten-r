@@ -37,14 +37,15 @@ e_polygon <- e_query$osm_multipolygons
 #' Import luftdaten as csv files into a table of csv filepaths. 
 #' Use only sds011 sensor data by using pattern matching on the file names. 
 #' Export the absolute path
-csv_filenames <- list.files(path = "data/", pattern = "_sds011", full.names = TRUE)
+#csv_filenames <- list.files(path = "data/", pattern = "_sds011", full.names = TRUE)
+csv_filenames <- list.files(path = "data/", pattern = "cutted", full.names = TRUE)
 
 
 # Subset of debugging and or different styles of loading large csv-files. 
-#sensor_data <- rbindlist(lapply(csv_filenames, fread))
+sensor_data <- rbindlist(lapply(csv_filenames, fread))
 #sensor_data <- read.csv("data/2019-12_sds011.csv")[c(1:100) ,c('sensor_id', 'lat', 'lon', 'timestamp')]
 #sensor_data <- read.table("data/2019-12_sds011.csv", colClasses = c())
-#sensor_data <- read.csv(pipe("cut -d';' -f1,4-6 data/2019-12_sds011.csv | head -n 100000"))
+#sensor_data <- read.csv("data/cutted-10M.csv", sep=";")
 
 
 #' Generate unique list of sensors
