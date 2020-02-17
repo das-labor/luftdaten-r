@@ -19,7 +19,7 @@ library(cartography)
 #'
 #' Set working directory strictly to "Project directory". All following paths 
 #' are relative to this directory
-setwd("~/devel/luftdaten-r")
+setwd("~/feinstaub/luftdaten-r")
 #'
 #' Please consider: names of variables are in english, lowercase and "_" 
 
