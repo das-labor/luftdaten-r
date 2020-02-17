@@ -31,14 +31,14 @@ e_query <- opq("Essen Nordrhein-Westfalen") %>% add_osm_feature(key="de:regional
 e_polygon <- e_query$osm_multipolygons
 
 #' Download country relation and extract polygons of them
-#nrw_query <- opq_osm_id(id="62761", type="relation") %>% opq_string() %>% osmdata_sp()
-#nrw_polygon <- nrw_query$osm_multipolygons
+nrw_query <- opq_osm_id(id="62761", type="relation") %>% opq_string() %>% osmdata_sp()
+nrw_polygon <- nrw_query$osm_multipolygons
 
 #' Import luftdaten as csv files into a table of csv filepaths. 
 #' Use only sds011 sensor data by using pattern matching on the file names. 
 #' Export the absolute path
-#csv_filenames <- list.files(path = "data/", pattern = "_sds011", full.names = TRUE)
-csv_filenames <- list.files(path = "data/", pattern = "cutted", full.names = TRUE)
+#csv_filenames <- list.files(path = "data", pattern = "_sds011", full.names = TRUE)
+csv_filenames <- list.files(path = "data", pattern = "trimmed", full.names = TRUE)
 
 
 # Subset of debugging and or different styles of loading large csv-files. 
@@ -52,7 +52,10 @@ sensor_data <- rbindlist(lapply(csv_filenames, fread))
 sensor_data_unique <- sensor_data[!duplicated(sensor_data$sensor_id), ]
 
 #' Convert timestamp strings to datetime objects
-sensor_data_unique$timestamp <- anytime(sensor_data_unique$timestamp)
+#sensor_data_unique$timestamp <- anytime(sensor_data_unique$timestamp)
+
+#' Ignore incomplete entries
+sensor_data_unique <- na.omit(sensor_data_unique)
 
 #' Convert lat/lon strings to coordinates/sf-object and adding projection
 sensor_data_unique <- st_as_sf(sensor_data_unique, coords=c("lon","lat"))

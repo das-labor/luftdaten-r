@@ -9,18 +9,18 @@ output:
 ---
 
 ```{r setup, include=FALSE, echo=FALSE, cache=FALSE}
-#`require(knitr)
-#`opts_knit$set(root.dir = "~/Projekte/Luftdaten-Ruhrgebiet")
-
-source("evaluation/scripts/load.R", chdir=TRUE, local=TRUE)
-source("evaluation/scripts/func.R", chdir=TRUE, local=TRUE)
+knitr::opts_chunk$set(warning = TRUE, message = TRUE)
+#require(knitr)
+#knitr::opts_knit$set(root.dir = "~/devel/luftdaten-r/")
+source('~/devel/luftdaten-r/evaluation/scripts/load.R', chdir=TRUE, local=TRUE)
+#source("evaluation/scripts/func.R", chdir=TRUE, local=TRUE)
 ```
 
 ## Vergleich von Dortmund und Essen
 Während die Anzahl von Sensoren in Dortmund `r length(do_sensors)` betragen, sind es in Essen `r length(e_sensors)`.
 
 ```{r sensor_maps_do, echo=FALSE, results='hide', fig.cap="Alle Sensoren im Stadtraum Dortmund", fig.width=3}
-do_polygon_osm <- getTiles(x = do_polygon, type = "osm", crop = TRUE)
+do_polygon_osm <- getTiles(x = do_polygon, type = "osm", crop = FALSE, zoom = 11, verbose = TRUE)
 
 tm_shape(do_polygon_osm)+
   tm_rgb()+

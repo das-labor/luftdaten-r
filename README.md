@@ -59,3 +59,8 @@ Analysis in R of the data of luftdaten.info
 * data folder
     - as of now a local non-indexed data folder is expected to be in the project root
     - data is structured as given by the [archive](https://archive.luftdaten.info) of luftdaten.info
+    - consider reducing amount of data by manipulating it with POSIX tools first, e.g.
+    ``` 
+    gawk -F\; '{ print $1, $4, $5 }' $FILE > out.txt
+    ```
+    
